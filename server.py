@@ -1,21 +1,7 @@
-from flask import Flask, render_template
-from flask_socketio import SocketIO
-import json
+#!/bin/env python
+from app import create_app, socketio
 
-app = Flask(__name__)
-socketio = SocketIO(app)
+app = create_app(debug=True)
 
-
-@app.route("/")
-def index():
-    return render_template('chat.html', )
-
-
-@socketio.on('send_message')
-def handle_source(json_data):
-    text = json_data['message'].encode('ascii', 'ignore')
-    socketio.emit('echo', {'echo': 'Server Says: ' + text})
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     socketio.run(app)
