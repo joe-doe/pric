@@ -4,11 +4,12 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" charset="utf-8">
-            console.log('https://' + document.domain + ':' + location.port);
-            var socket = io.connect('https://' + document.domain + ':' + location.port+'/');
+            var prot = 'https'
+            console.log(prot + '://' + document.domain + ':' + location.port);
+            var socket = io.connect(prot + '://' + document.domain + ':' + location.port+'/');
             console.log(socket);
             socket.on('echo', function(data){
-                $('#response').html('<p>'+data.echo+'</p>');
+                $('#response').append('<p>'+data.echo+'</p>');
             });
 
             function send(){
