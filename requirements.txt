@@ -2,9 +2,10 @@ appdirs==1.4.3
 click==6.7
 Flask==0.12.2
 Flask-SocketIO==2.8.6
+Flask-WTF==0.14.2
 gevent==1.2.1
 greenlet==0.4.12
-gunicorn==18.0
+gunicorn==19.7.1
 itsdangerous==0.24
 Jinja2==2.9.6
 MarkupSafe==1.0
@@ -14,3 +15,4 @@ python-engineio==1.5.2
 python-socketio==1.7.4
 six==1.10.0
 Werkzeug==0.12.2
+WTForms==2.1
