@@ -13,8 +13,16 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Chat Room Name: {{ room }}</h1>
-    <textarea id="chat" cols="80" rows="20"></textarea><br><br>
-    <input id="text" size="80" placeholder="Enter your message here"><br><br>
-    <a href="#" onclick="leave_room();">Leave this room</a>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h2>Chat Room Name: {{ room }}</h2></div>
+              <div class="panel-body">
+                  <textarea readonly id="chat" ></textarea><br><br>
+                  <input autofocus id="text" placeholder="Enter your message here"><br><br>
+                  <a href="#" class="pull-right" onclick="leave_room();">Leave this room</a>
+              </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
