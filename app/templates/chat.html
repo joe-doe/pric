@@ -1,15 +1,20 @@
-<html>
-    <head>
-        <title>Chat Room Name: {{ room }}</title>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/notifications.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/websocket_client.js') }}"></script>
-    </head>
-    <body>
-        <h1>Chat Room Name: {{ room }}</h1>
-        <textarea id="chat" cols="80" rows="20"></textarea><br><br>
-        <input id="text" size="80" placeholder="Enter your message here"><br><br>
-        <a href="#" onclick="leave_room();">Leave this room</a>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    Chat Room Name: {{ room }}
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/focus_monitor.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/websocket_client.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/focus_monitor.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Chat Room Name: {{ room }}</h1>
+    <textarea id="chat" cols="80" rows="20"></textarea><br><br>
+    <input id="text" size="80" placeholder="Enter your message here"><br><br>
+    <a href="#" onclick="leave_room();">Leave this room</a>
+{% endblock %}

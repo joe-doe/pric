@@ -1,7 +1,7 @@
             var socket;
             $(document).ready(function(){
 
-                var prot = "https";
+                var prot = "http";
                 var app_url = prot + '://' + document.domain + ':' + location.port;
 
 
@@ -16,7 +16,9 @@
                 socket.on('message', function(data) {
                     $('#chat').val($('#chat').val() + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
-                    notifyMe(data.msg);
+                    if (focused == false) {
+                        notifyMe(data.msg);
+                    }
                 });
                 $('#text').keypress(function(e) {
                     var code = e.keyCode || e.which;
