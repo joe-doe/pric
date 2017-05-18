@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'orangejuice';
+    src: url('/static/fonts/orangejuice.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/orangejuice.woff') format('woff'),
+         url('/static/fonts/orangejuice.ttf') format('truetype'),
+         url('/static/fonts/orangejuice.svg#orangejuice') format('svg');
+         font-weight: normal;
+         font-style: normal;
+}
+
+.logo {
+    font-family: 'orangejuice';
+    font-size: 80px;
+    text-align: center ;
+}
+
 .welcome-box {
     max-width: 330px;
     margin-top: 20px;

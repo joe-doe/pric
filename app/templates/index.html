@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Carter+One" />-->
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <div class="welcome-box">
-                <h2>PRI.C</h2>
+                <div class="logo">PRI.C</div>
                 <form class="form" action="/" method="post">
                     <div class="form-group">
                         <label for="name">name:</label>
@@ -40,7 +41,20 @@ $(document).ready(function(){
                     retVal += charset.charAt(Math.floor(Math.random() * n));
                 }
                 $("#room").val(retVal);
-            });
+
+                var wordlist1 = ["Cool","Masked","Bloody","Lame","Big","Stupid","Drunk","Rotten",
+                                "Blue","Black","White","Red","Purple","Golden","Silver"];
+
+                var wordlist2 = ["Hamster","Moose","Lama","Duck","Bear","Eagle","Tiger",
+                                "Rocket","Bullet","Knee","Foot","Hand"]
+
+                // Random numbers are made
+                var randomNumber1 = parseInt(Math.random() * wordlist1.length);
+                var randomNumber2 = parseInt(Math.random() * wordlist2.length);
+                var name = wordlist1[randomNumber1] + " " + wordlist2[randomNumber2];
+
+                $("#name").val(name);
+ });
 
 </script>
 </body>
