@@ -1,7 +1,7 @@
             var socket;
             $(document).ready(function(){
 
-                var prot = "http";
+                var prot = "https";
                 var app_url = prot + '://' + document.domain + ':' + location.port;
 
 
