@@ -42,8 +42,8 @@
 }
 
 #chat {
-  width: 100% !important;
-  height: 250px;
+  overflow-y: auto;
+  height:250px;
   font-family: 'OhWhale';
   font-size: 20px;
 }
@@ -68,6 +68,10 @@
   font-size: 15px;
 }
 
-#preview_name {
-    background: red;
+#message {
+    display:inline-block;
+}
+
+#user {
+    color: red;
 }

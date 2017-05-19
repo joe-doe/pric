@@ -8,6 +8,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/focus_monitor.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/emoji.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/websocket_client.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/focus_monitor.js') }}"></script>
 {% endblock %}
@@ -18,7 +19,10 @@
         <div class="panel panel-info">
             <div class="panel-heading" id="panel-header">Chat Room Name: <span id="room_name">{{ room }}</span></div>
               <div class="panel-body">
-                  <textarea readonly id="chat" ></textarea><br><br>
+                  <!--<textarea readonly id="chat" ></textarea><br><br>-->
+                  <!--<canvas id="chat">-->
+                  <!--</canvas>-->
+                  <div id="chat"></div><br><br>
                   <input autofocus id="text" placeholder="Enter your message here"><br><br>
                   <a href="#" id="leave-room" class="pull-right" onclick="leave_room();">Leave this room</a>
               </div>
