@@ -2,7 +2,7 @@
 
             $(document).ready(function(){
 
-                var prot = "http";
+                var prot = "https";
                 var app_url = prot + '://' + document.domain + ':' + location.port;
                 var static_folder = $('.static-folder').attr('id');
 
