@@ -1,10 +1,10 @@
 var socket;
-var prot = "http";
+var prot = "https";
 var app_url = prot + '://' + document.domain + ':' + location.port;
 
 $(document).ready(function(){
-
     var static_folder = $('.static-folder').attr('id');
+
     socket = io.connect(app_url + '/chat');
 
     socket.on('connect', function() {
@@ -17,12 +17,13 @@ $(document).ready(function(){
     });
 
     socket.on('message', function(data) {
+
         // msg = data.msg.replace(":)", "<img src='" + static_folder + "photo/emoji/rockanim.gif' alt='rock-emoji'/>");
         for(key in emoji) {
-            msg = data.msg.replace(key.toString(), "<img src='" + static_folder + "photo/emoji/"+ emoji[key] +"' alt='"+ emoji[key] +"'/>");
-            console.log(msg);
+            data.msg = data.msg.replace(key.toString(), "<img src='" + static_folder + "photo/emoji/"+ emoji[key] +"' alt='"+ emoji[key] +"'/>");
         }
-        $('#chat').append('<span id="user">' + data.user + ': </span><span id="message"> ' + msg + '</span><br />');
+
+        $('#chat').append('<span id="user">' + data.user + ': </span><span id="message"> ' + data.msg + '</span><br />');
         $('#chat').scrollTop($('#chat')[0].scrollHeight);
         if (focused == false) {
             notifyMe(data.msg);
@@ -38,11 +39,12 @@ $(document).ready(function(){
         }
     });
 });
-function leave_room() {
-        socket.emit('left', {}, function() {
-            socket.disconnect();
-            // go back to the login page
-            window.location.href = app_url;
-        });
-}
 
+function leave_room() {
+    socket.emit('left', {}, function() {
+        socket.disconnect();
+
+        // go back to the login page
+        window.location.href = app_url;
+    });
+}
